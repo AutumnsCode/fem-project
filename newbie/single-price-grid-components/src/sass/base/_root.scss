@@ -1,0 +1,36 @@
+@use '../abstract' as *;
+
+:root {
+  // color 
+  @each $neu, $shades in $color {
+    @each $p, $val in $shades {
+      --clr-#{$neu}-#{$p}: #{$val};
+    }
+  }
+
+  // font-family
+  @each $style, $name in $fonts-ff {
+    --ff-#{$style}: #{$name};
+  }
+
+  // font-size
+
+  @each $screen, $value in $typo {
+    @if(screen == 'large') {
+      @include mq-min(large) {
+        @each $prop, $val in $value {
+          --fs-#{$prop}: #{$val};
+        }
+      }
+      @include mq-max(desktop) {
+        @each $prop, $val in $value {
+          --fs-#{$prop}: #{$val};
+        }
+      }
+    } @else {
+      @each $prop, $val in $value {
+              --fs-#{$prop}: #{$val};
+      }
+    }
+  }
+}
