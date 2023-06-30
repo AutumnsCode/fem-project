@@ -1,0 +1,66 @@
+@use '../abstract' as *;
+
+.indicator {
+  &-underline {
+    curser: pointer;
+    
+    
+    > * {
+      border: 0;
+      padding-block: var(--underline-gap, 1rem);
+
+      &:hover,
+      &:focus {
+        border-bottom: 0.2rem solid hsl(var(--clr-white) / 0.5);
+      }
+    }
+
+    > .active,
+    > [aria-selected ="true"] {
+      border-bottom: 0.2rem solid hsl(var(--clr-white));
+      color: hsl(var(--clr-white));
+    }
+  }
+
+  &-dot {
+    > * {
+      cursor: pointer;
+      padding-inline: 0.5rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: 0;
+      background: hsl(var(--clr-white) / 0.15);
+
+      &:hover,
+      &:focus {
+        background: hsl(var(--clr-white) / 0.5);
+      }
+    }
+    > [aria-selected ="true"] {
+      background-color: hsl(var(--clr-white));
+    }
+  }
+
+  &-number {
+    display: inline-grid;
+    > * {
+      cursor: pointer;
+      border: 0;
+      padding-inline: 1.25rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: hsl(var(--clr-dark));
+      color: hsl(var(--clr-white));
+      border: 1px solid hsl(var(--clr-white) / 0.15);
+
+      &:hover,
+      &:focus {
+        border-color: hsl(var(--clr-white) / 0.5);
+      }
+    }
+
+    > [aria-selected ="true"] {
+      border-color: hsl(var(--clr-white));
+    }
+  }
+}

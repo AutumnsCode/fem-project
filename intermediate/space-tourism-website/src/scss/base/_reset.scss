@@ -12,16 +12,30 @@ h2,
 h3,
 h4,
 h5, 
+p,
 picture, 
 figure {
   margin: 0;
 }
 
+h1,
+h2, 
+h3,
+h4,
+h5,
+h6,
+p {
+  font-weight: normal;
+}
 /* make images easier to work with */
 
 body {
+  font-family: var(--ff-sans-serif);
+  font-size: var(--fs-400);
   line-height: 1.5;
   min-height: 100vh;
+  color: hsl(var(--clr-white));
+  background: hsl(var(--clr-dark));
 }
 
 /* make images easier to work with */
