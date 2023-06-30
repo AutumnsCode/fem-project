@@ -1,0 +1,11 @@
+@use '../abstract' as * ;
+
+@each $color, $val in $colors {
+  .bg-#{$color} {
+    background-color: hsl($val);
+  }
+
+  .text-#{$color} {
+    color: hsl($val);
+  }
+}
