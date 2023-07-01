@@ -9,13 +9,24 @@
 
 .grid-container {
   display: grid;
+  place-items: center;
+  text-align: center;
+  padding-inline: 1rem;
+
+  > * {
+    max-width: 45ch;
+  }
   
 
   @include mq-min(desktop) {
     column-gap: var(--container-gap, 2rem);
     grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 40rem)) minmax(2rem, 1fr);
+    text-align: left;
+
 
     &__home {
+      align-items: end;
+      padding-bottom: max(6rem, 15vh);
       &> *:first-child {
         grid-column: 2;
       }

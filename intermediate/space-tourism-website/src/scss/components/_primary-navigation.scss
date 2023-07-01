@@ -1,12 +1,14 @@
 @use '../abstract' as *;
 
 .primary-navigation {
-  --gap: 8rem;
-  --underline-gap: 2.375rem;
+  // --underline-gap: 2.375rem;
   list-style: none;
-  padding: 0;
+  padding: min(20rem, 10vh) 2rem;
   margin: 0;
-  justify-content: center;
+  backdrop-filter: blur(1.15rem);
+  background: hsl(var(--clr-white) / 0.05);
+
+  
 
   a {
     text-decoration: none;
@@ -14,6 +16,36 @@
     > span {
       font-weight: 700;
       margin-right: 0.5em;
+    }
+  }
+
+  @include mq-max(mobile) {
+    --underline-gap: .5rem;
+    flex-direction: column;
+    position: fixed;
+    inset: 0 0 0 30%;
+    transform: translateX(100%);
+    transition: transform 500ms ease-in-out;
+    z-index: 99;
+    padding: min(20rem, 15vh) 2rem;
+    
+
+    &.indicator-underline {
+
+      &>*:hover, 
+      &>*:focus {
+        border: 0;
+      }
+      
+      &> .active,
+      &>[aria-selected="true"]{
+        border: 0;
+      }
+
+    }
+
+    &[data-visible="true"] {
+      transform: translateX(0);
     }
   }
 }
