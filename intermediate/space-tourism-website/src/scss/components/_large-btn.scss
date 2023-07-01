@@ -10,12 +10,9 @@
   text-decoration: none;
   z-index: 1;
 
-  @include mq-min(mobile) {
-    padding-inline: 3em;
-  }
 
   @include mq-min(desktop) {
-    padding-inline: 4em;
+    padding-inline: 2em;
   }
 
   &::after {
