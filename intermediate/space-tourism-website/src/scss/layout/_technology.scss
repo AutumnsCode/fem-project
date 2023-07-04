@@ -1,0 +1,14 @@
+@use '../abstract' as *;
+
+.technology {
+  background-image: url(../../../assets/technology/background-technology-mobile.jpg);
+
+  @include mq-min(mobile) {
+    background-position: center center;
+    background-image: url(../../../assets/technology/background-technology-tablet.jpg);
+  }
+
+  @include mq-min(desktop) {
+    background-image: url(../../../assets/technology/background-technology-desktop.jpg);
+  }
+}

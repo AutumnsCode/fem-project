@@ -16,6 +16,7 @@
   > * {
     max-width: 45ch;
   }
+
   
 
   @include mq-min(desktop) {
@@ -34,6 +35,39 @@
       &> *:last-child {
         grid-column: 3;
       }
+    }
+  }
+
+  &__destination {
+    grid-template-areas: 
+      'title'
+      'image'
+      'tab'
+      'content'
+    ;
+
+    > picture {
+      grid-area: image;
+      max-width: 60%;
+    }
+
+    > .destination-info {
+      grid-area: content;
+    }
+
+    .destination-meta {
+      flex-direction: column;
+      border-top: 1px solid hsl(var(--clr-white) / 0.1);
+      padding-top: 2.5rem;
+      margin-top: 2.5rem;
+    }
+
+    @include mq-min(desktop) {
+      grid-template-areas: 
+        '. title title .'
+        '. image tab .'
+        '. image content .'
+      ;
     }
   }
 }

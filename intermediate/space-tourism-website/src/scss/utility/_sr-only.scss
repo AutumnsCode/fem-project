@@ -11,7 +11,20 @@
   border: 0;
 }
 
-box {
-  background: lightblue;
-  padding: 3rem;
+.skip {
+  position: absolute;
+  z-index: 999;
+  background-color: hsl(var(--clr-white));
+  color: hsl(var(--clr-dark));
+  padding: 0.5em 1em;
+  margin-inline: auto;
+  transition: transform 500ms ease-in-out;
+  transform: translateY(-100%);
+
+  &:focus {
+    transform:  translateY(0%);
+    outline: none;
+  }
 }
+
+

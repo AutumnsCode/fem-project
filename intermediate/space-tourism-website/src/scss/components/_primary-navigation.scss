@@ -1,10 +1,10 @@
 @use '../abstract' as *;
 
 .primary-navigation {
-  // --underline-gap: 2.375rem;
   list-style: none;
   padding: min(20rem, 10vh) 2rem;
   margin: 0;
+  padding: 0;
   backdrop-filter: blur(1.15rem);
   background: hsl(var(--clr-white) / 0.05);
 
@@ -12,6 +12,7 @@
 
   a {
     text-decoration: none;
+    font-size: var(--fs-200);
 
     > span {
       font-weight: 700;
@@ -47,5 +48,24 @@
     &[data-visible="true"] {
       transform: translateX(0);
     }
+  }
+
+  @media (min-width: 35rem) and (max-width: 48.99rem){
+    --underline-gap: 2rem;
+    --gap: 2.375rem;
+    padding-inline: 3rem;
+    gap: 2rem;
+    a {
+  
+      > span {
+        display: none;
+      }
+    }
+  }
+
+  @include mq-min(desktop) {
+    padding-inline: min(8vw, 7.5rem);
+    --gap: clamp(2rem, 3vw, 3rem);
+    --underline-gap: 2.375rem
   }
 }

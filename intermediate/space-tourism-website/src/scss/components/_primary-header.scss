@@ -1,6 +1,36 @@
 @use '../abstract' as *;
 
 .primary-header {
+  justify-content: space-between;
+  align-items: center;
+
+  @include mq-min(desktop) {
+    padding-top: 2.5rem;
+
+    &::before {
+      content: '';
+        display: block;
+        position: relative;
+        height: 1px;
+        width: 100%;
+        background: hsl(var(--clr-white) / 0.25);
+        order: 1;
+        right: -3rem;
+        z-index: 199;
+    };
+
+    nav {
+      order: 2
+    }
+  }
+
+
+
+  &__logo {
+    margin-left: clamp(1.5rem, 5vw, 3.5rem);
+
+    z-index: 100;
+  }
 
   &__menu {
     display: none;
@@ -16,9 +46,11 @@
       border: 0;
       background-image: url(../../../assets/shared/icon-hamburger.svg);
       width: 1.25rem;
-      aspect-ratio: 1
+      aspect-ratio: 1;
       
-      ;
+      &[aria-expended="true"] {
+        background-image: url(../../../assets/shared/icon-close.svg);
+      }
     }
   }
 }
